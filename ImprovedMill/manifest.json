@@ -1,7 +1,7 @@
 ﻿{
    "Name": "Improved Mill",
    "Author": "AustinYQM",
-   "Version": "1.0.2",
+   "Version": "1.0.3",
    "Description": "Use any grain to make flour. Use more things to make sugar.",
    "UniqueID": "AustinYQM.ImprovedMill",
    "EntryDll": "ImprovedMill.dll",

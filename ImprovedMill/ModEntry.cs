@@ -56,15 +56,14 @@ namespace ImprovedMill
         /// <param name="e">The event data.</param>
         private void InputEvents_ButtonPressed(object sender, EventArgsInput e)
         {
-            if (!e.IsActionButton)
+            if (!e.IsActionButton && !(e.Button == SButton.ControllerA) && !(e.Button == SButton.ControllerX))
                 return;
             Mill mill = this.GetBuildingAt(e.Cursor.GrabTile) as Mill;
             if (mill == null)
                 return;
 
-            
-
-            e.SuppressButton();
+            //if(!e.IsSuppressed)
+                e.SuppressButton();
             
 
             if (Game1.player.CurrentItem is StardewValley.Object currentObj && currentObj.category == -75)
