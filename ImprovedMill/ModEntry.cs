@@ -29,24 +29,26 @@ namespace ImprovedMill
             if(this.Config != null) { this.Monitor.Log("Config loaded.", LogLevel.Info); }
         }
 
+        /// <summary>Checks to see if the tile is a building.</summary>
+        /// <param name="tile">Proves a tile to inspect.</param>
         public Building GetBuildingAt(Vector2 tile)
         {
-            if(Game1.currentLocation is BuildableGameLocation location)
+            if(Game1.currentLocation is BuildableGameLocation location) // Check to see if the player is in a location where a mill could be.
             {
-                foreach (Building building in location.buildings)
+                foreach (Building building in location.buildings) // for each building in the location....
                 {
-                    Rectangle area = new Rectangle(building.tileX, building.tileY, building.tilesWide, building.tilesHigh);
-                    if (area.Contains((int)tile.X, (int)tile.Y))
-                        return building;
+                    Rectangle area = new Rectangle(building.tileX, building.tileY, building.tilesWide, building.tilesHigh); // make a rectangle the size of the building.
+                    if (area.Contains((int)tile.X, (int)tile.Y)) // see if that rectangle contains tile.
+                        return building; // return the building.
                 }
             }
-            return null;
+            return null; // return null
         } // See what building we are pointing at.
+        //<summary> Delete the object the player is currently holding </summary>
         public void DeleteHeld()
         {
             Game1.player.removeItemFromInventory(Game1.player.CurrentItem);
-        } // Delete the held item.
-        
+        } 
 
         /*********
         ** Private methods
